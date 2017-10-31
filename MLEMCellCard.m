@@ -200,13 +200,13 @@ if Build.MaskOuterEdge == 1
     fprintf(f2, 'c Fill remaining universe with air cells\n');
     fprintf(f2,'80003 001 -0.001225 (%d -%d 8001 8002 -8003 -8004) (-%d:%d:-%d:%d) \n',PolimiParameters.surfacestart,PolimiParameters.surfacestart+1,PolimiParameters.MaskBoarderYBelow,PolimiParameters.MaskBoarderYAbove,PolimiParameters.MaskBoarderZBelow,PolimiParameters.MaskBoarderZAbove);
     
-    fprintf(f2,'80002 001 -0.001225 (8001 8002 -8003 -8004 %d -8006)\n',PolimiParameters.surfacestart+1);
+    fprintf(f2,'80002 001 -0.001225 (8001 8002 -8003 -8004 -%d 8005)\n',PolimiParameters.surfacestart);
     
     for nDetectorSurface = 1:nDetectorCells
         fprintf(f2,'     %d\n',PolimiParameters.DetectorSurfaceStart-1+nDetectorSurface);
     end
    
-        fprintf(f2,'80001 001 -0.001225 (8001 8002 -8003 -8004 8005 -%d)  \n',PolimiParameters.surfacestart);
+        fprintf(f2,'80001 001 -0.001225 (8001 8002 -8003 -8004 -8006 %d)  \n',PolimiParameters.surfacestart+1);
     
 end
 
