@@ -78,7 +78,7 @@ if FoundSystemMatrix == 0
         parfor iSims = 1:MLEM.nSims
 
             % Check for existance of completed simulation at each point in space
-             if exist(fullfile(pwd,[num2str(iSims) 'MLEMSiPMPositionImageMatrix.mat']),'file') == 2;
+             if exist(fullfile(pwd,[num2str(iSims) 'MLEMSiPMPositionImageMatrix.mat']),'file') == 2
 
              else
 
