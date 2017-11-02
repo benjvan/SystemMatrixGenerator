@@ -79,10 +79,9 @@ if FoundSystemMatrix == 0
 
             % Check for existance of completed simulation at each point in space
              if exist(fullfile(pwd,[num2str(iSims) 'MLEMSiPMPositionImageMatrix.mat']),'file') == 2
-                fprintf('File Found = %d\n',exist(fullfile(pwd,[num2str(iSims) 'MLEMSiPMPositionImageMatrix.mat']),'file'))
+                p
              else
-                fprintf('File Found = %d\n',exist(fullfile(pwd,[num2str(iSims) 'MLEMSiPMPositionImageMatrix.mat']),'file'))
-
+                
                  % Run Polimi
                      MLEMPolimiRun(FileNames,iSims);
 
@@ -146,7 +145,7 @@ if FoundSystemMatrix == 0
 
           % Stitch Readout Matricies together into System Matrix
 
-                MLEMReadoutStitch(MLEM,RunParameters);
+                MLEMReadoutStitch(Detector,MLEM,RunParameters);
 
 
            % Remove extra folder with System Matrix computational data

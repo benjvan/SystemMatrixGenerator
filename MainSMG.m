@@ -119,7 +119,7 @@ clc
     
                                                                 
     % Simulation NPS
-    PolimiParameters.NPS = 5*10^7;
+    PolimiParameters.NPS = 1*10^6;
                                                                 
                                                                 
                                                                 
