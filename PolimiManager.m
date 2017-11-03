@@ -7,7 +7,6 @@ function PolimiManager(RunParameters,PolimiParameters,MaskParameters,Build)
 
     [FoundSystemMatrix] = MLEMCheckRepo(RunParameters,MaskParameters,PolimiParameters,Build);                           
 
-
 % If no match is found begin monte carlo estimations for MLEM system matrix and save MLEM values in MLEM Index
 
 if FoundSystemMatrix == 0 
@@ -140,7 +139,7 @@ if FoundSystemMatrix == 0
 
                 parfor iSims = 1:MLEM.nSims
 
-                     MLEMGridReadout(Detector,iSims);
+                     MLEMGridReadout(MaskParameters,iSims);
 
                 end
 
@@ -169,44 +168,44 @@ if FoundSystemMatrix == 0
 
         SimIndex = sparse(100000,1);
 
-                    SimIndex(2,1) = MaskParameters.MaskThickness;
-                    SimIndex(3,1) = MaskParameters.MaskDensity;   
-                    SimIndex(4,1) = MaskParameters.MaskPlane;    
-                    SimIndex(5,1) = MaskParameters.MasktoDetector;
-                    SimIndex(6,1) = MaskParameters.MaskElementSizeY;
-                    SimIndex(7,1) = MaskParameters.MaskElementSizeZ;
+            SimIndex(2,1) = MaskParameters.MaskThickness;
+            SimIndex(3,1) = MaskParameters.MaskDensity;   
+            SimIndex(4,1) = MaskParameters.MaskPlane;    
 
-                    SimIndex(8,1) = Detector.SourceDistance;
-                    SimIndex(9,1) = Detector.Offset;
-                    SimIndex(10,1) = Detector.Width;
-                    SimIndex(11,1) = Detector.Height;
-                    SimIndex(12,1) = Detector.Depth; 
-                    SimIndex(13,1) = Detector.nVerticalElements;
-                    SimIndex(14,1) = Detector.nHorizontalElements;
+            SimIndex(6,1) = MaskParameters.MaskEdgeLength; %(Width)
+            SimIndex(7,1) = MaskParameters.MaskEdgeLength; %(Height)
+            
+            SimIndex(8,1) = PolimiParameters.SourceDistance;
 
-                    if Build.MaskOuterEdge == 1
-                        SimIndex(15,1) = MaskParameters.MaskOuterEdge.LengthLeft;
-                        SimIndex(16,1) = MaskParameters.MaskOuterEdge.LengthRight;
-                        SimIndex(17,1) = MaskParameters.MaskOuterEdge.LengthTop;
-                        SimIndex(18,1) = MaskParameters.MaskOuterEdge.LengthBottom;  
-                    else
-                        SimIndex(15,1) = 0;
-                        SimIndex(16,1) = 0;
-                        SimIndex(17,1) = 0;
-                        SimIndex(18,1) = 0;
-                    end
+            SimIndex(10,1) = PolimiParameters.SourcePlaneLength; %(Width)
+            SimIndex(11,1) = PolimiParameters.SourcePlaneLength; %(Height)
+            SimIndex(12,1) = PolimiParameters.ScintillatorThickness; 
+            SimIndex(13,1) = PolimiParameters.ScintillatorPixelNumber; %(Width)
+            SimIndex(14,1) = PolimiParameters.ScintillatorPixelNumber; %(Height)
 
-                    SimIndex(19,1) = MLEM.NPS;
-                    SimIndex(20,1) = MLEM.nImageEdgePixels;
+            if Build.MaskOuterEdge == 1
+                SimIndex(15,1) = MaskParameters.MaskOuterEdge.LengthLeft;
+                SimIndex(16,1) = MaskParameters.MaskOuterEdge.LengthRight;
+                SimIndex(17,1) = MaskParameters.MaskOuterEdge.LengthTop;
+                SimIndex(18,1) = MaskParameters.MaskOuterEdge.LengthBottom;  
+            else
+                SimIndex(15,1) = 0;
+                SimIndex(16,1) = 0;
+                SimIndex(17,1) = 0;
+                SimIndex(18,1) = 0;
+            end
+            
+            SimIndex(19,1) = PolimiParameters.NPS;
+            SimIndex(20,1) = PolimiParameters.SourcePixelNumber;
+            
 
-                    SimIndex(21,1) = PolimiParameters.RotationAngles(iAngles);
-
-                    SimIndex(100:size(MaskParameters.Ac,1)*size(MaskParameters.Ac,2)+99,1) = MaskParameters.Ac(:);
-
+            
+            
+            SimIndex(100:size(MaskParameters.Ac,1)*size(MaskParameters.Ac,2)+99,1) = MaskParameters.Ac(:);
 
                     % Assign SimIndex into new column of MLEMIndex
 
-                    MLEMIndex(:,MLEM.nNewSystemMatrix) = SimIndex;
+                    MLEMIndex(:,size(MLEMIndex,2)+1) = SimIndex;
 
                     save(fullfile(RunParameters.MLEMRepoLocation,'MLEMIndex.mat'),'MLEMIndex');
 

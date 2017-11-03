@@ -1,4 +1,4 @@
-function MLEMGridReadout(MaskParameters,iSims)
+function MLEMGridReadout(iSims)
 
 load(fullfile(pwd,['EnergyCentroid' num2str(iSims) '.mat']),'GammaInteractionData');
 
@@ -8,8 +8,8 @@ MaskParameters.MaskElementSizeZ = MaskParameters.totalmasklengthY/length(MaskPar
 offy = -MaskParameters.totalmasklengthY/2; 
 offz = -MaskParameters.totalmasklengthZ/2;
 
-Centers{1} = linspace(offy+MaskParameters.MaskElementSizeY/2,-offy-MaskParameters.MaskElementSizeY/2,length(MaskParameters.Ac));
-Centers{2} = linspace(offy+MaskParameters.MaskElementSizeY/2,-offy-MaskParameters.MaskElementSizeY/2,length(MaskParameters.Ac));
+Centers{1} = linspace(offy+MaskParameters.MaskElementSizeY/2,-offy;
+Centers{2} = Detector.BinCentersHorizontal;
 
 
 MaskImageMatrix = [GammaInteractionData.MaskEnergyWeightedCentroids(:,2),GammaInteractionData.MaskEnergyWeightedCentroids(:,3)];

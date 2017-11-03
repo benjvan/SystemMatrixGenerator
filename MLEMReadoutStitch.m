@@ -19,7 +19,7 @@ end
 
 % Normalize Matrix
 
- SystemMatrix = SystemMatrix/max(max(SystemMatrix));
+SystemMatrix = SystemMatrix/max(max(SystemMatrix));
 
 save(fullfile(RunParameters.MLEMRepoLocation,['SystemMatrix' num2str(MLEM.nNewSystemMatrix) '.mat']),'SystemMatrix');
 

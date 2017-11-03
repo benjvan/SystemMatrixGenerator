@@ -4,6 +4,7 @@ function  MLEMDumpInteractions(iSims)
 load(fullfile(pwd,['SortedDumn1Data' num2str(iSims) '.mat']),'Dumn1Data');
 
 
+fprintf('%d\n',iSims)
 
 MaskIndex(1,1) = 1;
 for i = 2:size(Dumn1Data,1)

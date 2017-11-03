@@ -45,7 +45,7 @@ clc
     PolimiParameters.SourcePlaneLength = 255.4204;
     
     % Source Plane Pixels per Edge (including PCFOV)(123)
-    PolimiParameters.SourcePixelNumber = 11;
+    PolimiParameters.SourcePixelNumber = 50;
     
     
     
@@ -119,7 +119,7 @@ clc
     
                                                                 
     % Simulation NPS
-    PolimiParameters.NPS = 1*10^6;
+    PolimiParameters.NPS = 2*10^6;
                                                                 
                                                                 
                                                                 
