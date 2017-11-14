@@ -23,7 +23,7 @@ clc
     cd(RunParameters.Location);
     
     % Name for simulation  
-    RunParameters.SimulationName = '2m_662'; 
+    RunParameters.SimulationName = '2m_662_11_DetShifted'; 
     
 
     % Declare MLEM Repo Location
@@ -41,8 +41,8 @@ clc
     % Source Plane Distance (From front of SiPM) (cm)
     PolimiParameters.SourceDistance = 200;
     
-    % Source Plane Edge Length (including PCFOV)
-    PolimiParameters.SourcePlaneLength = 255.4204;
+    % Source Plane Edge Length (including PCFOV)(255.4204)
+    PolimiParameters.SourcePlaneLength = 200;
     
     % Source Plane Pixels per Edge (including PCFOV)(123)
     PolimiParameters.SourcePixelNumber = 50;
@@ -55,7 +55,7 @@ clc
     PolimiParameters.ScintillatorPlaneLength = 5.02;
     
     % Scintillator Number of Pixels on each edge
-    PolimiParameters.ScintillatorPixelNumber = 11;
+    PolimiParameters.ScintillatorPixelNumber = 12;
     
     % Scintillator Thickness
     PolimiParameters.ScintillatorThickness = 2;
@@ -64,6 +64,14 @@ clc
     PolimiParameters.ScintillatorMaterial = 1;                  %1 = CsI
                                                                 %2 = NaI
                                                                 %3 = LaBr3
+      
+    % Detector Shift 
+    PolimiParameters.DetectorShiftX = 0.42; % Shifts detector laterally 
+                                            % Normally 0
+    PolimiParameters.DetectorShiftY = 0.42; % Shifts detector vertically                                                           
+                                            % Normally 0                   
+                                                                
+                                                                
                                                                 
     % Mask Pattern
     MaskParameters.Pattern = 1; % 1 = MURA         [3,7,11,19,23,31,43,47,59,67,71,79,83]
@@ -86,8 +94,7 @@ clc
     % Mosaic Mask
     MaskParameters.MosaicMuraMask = 1; % Takes the n x n mask and mosaics it into a (2*n-1) x (2*n-1) mask
 
-    
-    
+
     % Universe
     % XYZ Exterior Dimensions
         PolimiParameters.UniverseBoarderYMin = -PolimiParameters.SourcePlaneLength/2-PolimiParameters.SourcePlaneLength/2*0.25;
@@ -97,11 +104,7 @@ clc
         PolimiParameters.UniverseBoarderXMin = -10;
         PolimiParameters.UniverseBoarderXMax = PolimiParameters.SourceDistance+PolimiParameters.SourceDistance*0.1;                                                                
                                                                 
-                                                                
-                                   
-    
-    
-    
+
     
     % Build Mask Outer Edge
     Build.MaskOuterEdge = 1; % Material blocking all side rays from mask edges                                                           
@@ -119,17 +122,10 @@ clc
     
                                                                 
     % Simulation NPS
-    PolimiParameters.NPS = 2*10^6;
+    PolimiParameters.NPS = 5*10^7;
                                                                 
-                                                                
-                                                                
-                                                                
-                   
-    
     %%
          
-    
-    
         % Create all Mask Designs
         tic;
         [MaskParameters] = MaskCreation(MaskParameters);

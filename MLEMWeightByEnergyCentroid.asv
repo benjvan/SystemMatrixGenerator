@@ -1,6 +1,6 @@
 function MLEMWeightByEnergyCentroid(iSims)
 
-if exist(fullfile(pwd,['GammaInteractionData' num2str(iSims) '.mat']),'file' )
+if exist(fullfile(pwd,['SortedDumn1Data' num2str(iSims) '.mat']),'file' )
     load(fullfile(pwd,['GammaInteractionData' num2str(iSims) '.mat']),'GammaInteractionData');
 
     % Mask interactions grouped by incident gamma and overall energy deposition position weighted by energy deposited

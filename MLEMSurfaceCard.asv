@@ -210,8 +210,8 @@ fprintf(f1,'c\n');
 
     PolimiParameters.DetectorYMin = -PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftX;
     PolimiParameters.DetectorYMax =PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftX;
-    PolimiParameters.DetectorZMin = -PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftY;
-    PolimiParameters.DetectorZMax = PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftY;
+    PolimiParameters.DetectorZMin = -PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftX;
+    PolimiParameters.DetectorZMax = PolimiParameters.ScintillatorPlaneLength/2+PolimiParameters.DetectorShiftX;
     PolimiParameters.DetectorXMin = -PolimiParameters.ScintillatorThickness;
     PolimiParameters.DetectorXMax = 0;
 

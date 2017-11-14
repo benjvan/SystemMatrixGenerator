@@ -139,7 +139,7 @@ if FoundSystemMatrix == 0
 
                 parfor iSims = 1:MLEM.nSims
 
-                     MLEMGridReadout(MaskParameters,iSims);
+                     MLEMGridReadout(PolimiParameters,iSims);
 
                 end
 
