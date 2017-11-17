@@ -66,8 +66,7 @@ if FoundSystemMatrix == 0
         % Stitch Files together into input file
 
             MLEMInputFileCreation(FileNames,iSims);
-
-
+            
         end
 
      % Setup loop for monte carlo simulatios of system matrix

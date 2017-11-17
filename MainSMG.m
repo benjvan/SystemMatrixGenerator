@@ -23,7 +23,7 @@ clc
     cd(RunParameters.Location);
     
     % Name for simulation  
-    RunParameters.SimulationName = '2m_662_11_DetShifted'; 
+    RunParameters.SimulationName = '2m_662_11_DetShifted_try2'; 
     
 
     % Declare MLEM Repo Location
@@ -36,7 +36,7 @@ clc
 
 
     % Source Energy (MeV)
-    PolimiParameters.SourceEnergy = 0.662;
+    PolimiParameters.SourceEnergy = 0.663;
 
     % Source Plane Distance (From front of SiPM) (cm)
     PolimiParameters.SourceDistance = 200;
@@ -66,9 +66,9 @@ clc
                                                                 %3 = LaBr3
       
     % Detector Shift 
-    PolimiParameters.DetectorShiftX = 0.42; % Shifts detector laterally 
+    PolimiParameters.DetectorShiftX = -0.42; % Shifts detector laterally 
                                             % Normally 0
-    PolimiParameters.DetectorShiftY = 0.42; % Shifts detector vertically                                                           
+    PolimiParameters.DetectorShiftY = -0.42; % Shifts detector vertically                                                           
                                             % Normally 0                   
                                                                 
                                                                 
